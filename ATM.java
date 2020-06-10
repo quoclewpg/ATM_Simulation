@@ -2,6 +2,7 @@ import java.util.*;
 import java.lang.Math;
 
 public class ATM{
+<<<<<<< HEAD
     static List<Long> bills = new ArrayList<Long>();
 
     public static void main(String []args){
@@ -48,6 +49,38 @@ public class ATM{
         List<Double> divs = new ArrayList<Double>();
         List<Long> mods = new ArrayList<Long>();
         List<Long> results = new ArrayList<Long>();
+=======
+    
+    static List<Integer> bills = new ArrayList<Integer>();
+
+    public static void main(String []args){
+        int[] money = {10000, 20000, 50000, 100000, 200000, 500000};
+        List<Integer> withdraw = new ArrayList<Integer>();
+        
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter an amount to withdraw");
+
+        int amounts = myObj.nextInt();  // Read user input
+        System.out.println("You withdrawed: " + amounts);  // Output user input
+
+        withdraw = withdrawMoney(money, amounts);
+        for(int i = 0; i < bills.size(); i++){
+            System.out.println(withdraw.get(i) + " " +  bills.get(i));
+            for(int j = i + 1; j < bills.size(); j++){
+                if(bills.get(i).equals(bills.get(j))){
+                    i++;
+                }
+            }
+        }
+    }
+    
+    private static List withdrawMoney(int[] money, int n){
+        double div;
+        int mod;
+        List<Double> divs = new ArrayList<Double>();
+        List<Integer> mods = new ArrayList<Integer>();
+        List<Integer> results = new ArrayList<Integer>();
+>>>>>>> 4d04ea359096fdcca83569c080eefb01c562619b
         
         
         while(n > 0){
@@ -59,12 +92,26 @@ public class ATM{
                 if(div !=0){
                     divs.add(div);
                 }
+<<<<<<< HEAD
             }
             bills.add(money[divs.indexOf(Collections.min(divs))]);
             results.add((Collections.min(divs)).longValue());
+=======
+                
+                if(mod != n){
+                    mods.add(mod);
+                }
+            }
+            bills.add(money[divs.indexOf(Collections.min(divs))]);
+            results.add((Collections.min(divs)).intValue());
+>>>>>>> 4d04ea359096fdcca83569c080eefb01c562619b
             n = n - bills.get(bills.size() - 1);
             divs.clear();
         }
         return results;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4d04ea359096fdcca83569c080eefb01c562619b
